@@ -31,7 +31,6 @@ pipeline {
             }
         }
         stage('build') {
-            
             steps {
                 script{
                     echo 'building the application'
@@ -56,15 +55,7 @@ pipeline {
                 sh 'mvn test'}
             }
         }
-      stage('deploy') {
-        input{
-            message "Select the environment to deploy"
-            ok "done"
-            parameters{
-                choice(name: 'Type', choices:['Dev','Test','Deploy'], description: '')
-            }
-
-        }
+        stage('deploy') {
             steps {
                 script{echo 'deploying the application'
                 withCredentials([usernamePassword(credentialsId: '20it006', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
