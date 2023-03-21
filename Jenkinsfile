@@ -58,7 +58,7 @@ pipeline {
         stage('deploy') {
             steps {
                 script{echo 'deploying the application'
-                withCredentials([usernamePassword(credentialsId: '20it006', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
+                withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
                     sh "echo ${PASSWORD} | docker login -u ${USERNAME} --password-stdin"
                     sh "docker push 20it006/spring-jenkins:${IMAGE_NAME}"
                 }}
