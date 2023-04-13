@@ -85,7 +85,7 @@ pipeline {
 
                     env.IMAGE_NAME = "$version-$BUILD_NUMBER"
 
-                    sh "docker build -t rhythm999/016:${IMAGE_NAME} ."
+                    sh "docker build -t 20it006/006:${IMAGE_NAME} ."
 
                        
 
@@ -144,7 +144,7 @@ pipeline {
 
                     sh "echo ${PASSWORD} | docker login -u ${USERNAME} --password-stdin"
 
-                    sh "docker push rhythm999/016:${IMAGE_NAME}"
+                    sh "docker push 20it006/006:${IMAGE_NAME}"
 
                 }}
 
